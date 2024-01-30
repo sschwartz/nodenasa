@@ -4,12 +4,13 @@
 
 // The second line is using object destructuring to import only the 'planets' property from the exported module object.
 // This is used when the module exports an object with multiple properties and you want to use only specific properties.
-const { planets } = require('../../models/planets.model');
+const { getAllPlanets } = require('../../models/planets.model');
 
+console.log(`The planets controllers says getAllPlanets is a ${getAllPlanets}`);
 // const planets = [];
 
-function getAllPlanets(req, res) {
-    return res.status(200).json(planets);
+function httpGetAllPlanets(req, res) {
+    return res.status(200).json(getAllPlanets());
 }
 
-module.exports =  { getAllPlanets }
+module.exports =  { httpGetAllPlanets }
