@@ -32,4 +32,19 @@ function addNewLaunch(launch){
         }));
 }
 
-module.exports = {getAllLaunches ,addNewLaunch}
+
+function launchExists(launchId) {
+    const flightNumber = parseInt(launchId);
+    return launches.has(flightNumber);
+}
+
+function abortLaunch(flightNumber){
+    // if truly deleting launches.delete(flightNumber);   
+    
+    const abortedLaunch = launches.get(Number(flightNumber));
+    abortedLaunch.upcoming = false;
+    abortedLaunch.success = false;
+    return abortedLaunch;
+}
+
+module.exports = {getAllLaunches ,addNewLaunch, abortLaunch, launchExists}

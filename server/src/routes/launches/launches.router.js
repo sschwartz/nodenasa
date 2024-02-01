@@ -1,11 +1,12 @@
 const express = require('express');
 const launchesRouter = express.Router();
 
-const { httpGetAllLaunches, httpAddNewLaunch } = require('./launches.controller');
+const { httpGetAllLaunches, httpAddNewLaunch, httpAbortLaunch } = require('./launches.controller');
 
 
 launchesRouter.get('/launches', httpGetAllLaunches);
 launchesRouter.post('/launches', httpAddNewLaunch);
+launchesRouter.delete('/launches/:id', httpAbortLaunch)
 /* Alternate approach
 in app.js when defining the use Router line
 do app.use('/launches',launchesRouter) and it will prepend /launches for any routes defined in the router
