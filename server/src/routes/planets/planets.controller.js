@@ -6,11 +6,10 @@
 // This is used when the module exports an object with multiple properties and you want to use only specific properties.
 const { getAllPlanets } = require('../../models/planets.model');
 
-console.log(`The planets controllers says getAllPlanets is a ${getAllPlanets}`);
+// console.log(`The planets controllers says getAllPlanets is a ${getAllPlanets}`);
 // const planets = [];
-
-function httpGetAllPlanets(req, res) {
-    return res.status(200).json(getAllPlanets());
+async function httpGetAllPlanets(req, res) {
+    return res.status(200).json(await getAllPlanets());
 }
 
 module.exports =  { httpGetAllPlanets }
